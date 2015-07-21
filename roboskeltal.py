@@ -11,6 +11,7 @@ import time
 
 from datetime import datetime
 from password import password
+from string import replace
 from templates import *
 
 
@@ -57,8 +58,8 @@ while True:
 
             # Post to /r/roboskeltal linking to original and copy
             dt = datetime.fromtimestamp(s.created_utc)
-            orig = submission.permalink
-            xpost = s.permalink
+            orig = replace(submission.permalink, 'www', 'np', 1)
+            xpost = replace(s.permalink, 'www', 'np', 1)
             s2 = r.submit('roboskeltal', title=title,
                           text=submission_template.format(dt, orig, xpost))
 
@@ -90,8 +91,8 @@ while True:
 
             # Post to /r/roboskeltal linking to original and copy
             dt = datetime.fromtimestamp(c.created_utc)
-            orig = comment.permalink
-            xpost = c.permalink
+            orig = replace(comment.permalink, 'www', 'np', 1)
+            xpost = replace(c.permalink, 'www', 'np', 1)
             title = (comment.body[:297] + '...') if len(comment.body)>300 else comment.body
             s = r.submit('roboskeltal', title=title,
                      text=comment_template.format(dt, orig, xpost))
