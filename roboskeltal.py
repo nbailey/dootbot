@@ -10,6 +10,7 @@ import random
 import time
 
 from datetime import datetime
+from password import password
 from templates import *
 
 
@@ -20,7 +21,7 @@ print 'Starting RoboSkeltal! Doot doot.'
 print 'Signing in...'
 
 r = praw.Reddit(user_agent=user_agent)
-r.login('roboskeltal', 'CALc1um')
+r.login('roboskeltal', password)
 
 print 'Signed in!'
 
