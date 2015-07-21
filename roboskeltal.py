@@ -80,12 +80,8 @@ while True:
 
             # Find a /r/ledootgeneration post to comment on
             doot = r.get_subreddit('ledootgeneration')
-            rising = list(doot.get_rising())
-            if not rising:
-                hot = list(doot.get_hot(limit=3))
-                thread = random.choice(hot)
-            else:
-                thread = random.choice(rising)
+            new = list(doot.get_new(limit=3))
+            thread = random.choice(new)
 
             c = thread.add_comment(comment.body)
             print 'Commented on /r/ledootgeneration: {}'.format(c.permalink)
