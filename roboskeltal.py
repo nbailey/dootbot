@@ -62,6 +62,7 @@ while True:
             xpost = replace(s.permalink, 'www', 'np', 1)
             s2 = r.submit('roboskeltal', title=title,
                           text=submission_template.format(dt, orig, xpost))
+            s2.set_flair('Post')
 
             print 'Submitted to /r/roboskeltal: {}'.format(s2.permalink)
 
@@ -96,6 +97,7 @@ while True:
             title = (comment.body[:297] + '...') if len(comment.body)>300 else comment.body
             s = r.submit('roboskeltal', title=title,
                      text=comment_template.format(dt, orig, xpost))
+            s.set_flair('Comment')
 
             print 'Submitted to /r/roboskeltal: {}'.format(s.permalink)
 
