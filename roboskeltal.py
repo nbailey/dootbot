@@ -50,9 +50,11 @@ while True:
                 selftext = submission.selftext
                 s = r.submit('ledootgeneration', title=title, text=selftext)
             # Copy url for link posts
-            else:
-                url = submission.url
-                s = r.submit('ledootgeneration', title=title, url=url)
+            # TODO: Avoid already submitted errors when url is same as previous
+            # ledootgeneration post
+            # else:
+                # url = submission.url
+                # s = r.submit('ledootgeneration', title=title, url=url)
 
             print 'Submitted to /r/ledootgeneration: {}'.format(s.permalink)
 
